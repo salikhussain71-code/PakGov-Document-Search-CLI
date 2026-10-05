@@ -1,27 +1,91 @@
 # PakGov Document Search CLI
 
-A command-line tool built in Python to search keywords across multiple Pakistani government text documents. This was my CS50P Final Project.
+A Python command-line tool for searching keywords across Pakistani government documents.
 
-## Problem
-Government employees, researchers, and students often need to find specific information across hundreds of text files and PDFs. Doing this manually is slow and error-prone.
-
-## Solution
-PakGov Search CLI scans all `.txt` files inside a `docs/` folder, finds exact keyword matches, and shows 1 line of context before and after each match. Every search is automatically logged to a CSV file with a timestamp for record keeping.
+The tool searches multiple `.txt` documents, returns matching lines with surrounding context, and records searches in a CSV history file.
 
 ## Features
-- **Fast Keyword Search**: Search across multiple `.txt` files instantly
-- **Context Display**: Shows 1 line before and after each match for better understanding
-- **Search History**: All searches saved to `history.csv` with date and time
-- **Error Handling**: Custom exceptions for empty queries and missing folders
-- **Modular Code**: Clean separation using `document_reader.py` and `exceptions.py`
 
-## Technologies Used
-- **Language**: Python 3
-- **Libraries**: `os`, `csv`, `re`, `datetime`, `sys`
-- **Concepts**: File I/O, Regular Expressions, Custom Exceptions, CLI
+* **Keyword Search** — search across multiple government text documents.
+* **Context Display** — shows one line before and after each matching result.
+* **Search History** — records searches with date and time in `history.csv`.
+* **Error Handling** — handles invalid queries and missing document folders.
+* **Modular Structure** — separates document reading, search logic, and custom exceptions.
+* **Command-Line Interface** — designed to run directly from a terminal.
 
-## How to Run
-1. Clone the repository
-   ```bash
-   git clone https://github.com/salikhussain71-code/Pakgov-search-cli.git
-   cd Pakgov-search-cli
+## Technologies
+
+* Python 3
+* `os`
+* `csv`
+* `re`
+* `datetime`
+* `sys`
+
+## Concepts Demonstrated
+
+* File I/O
+* Text processing
+* Regular expressions
+* Command-line arguments
+* CSV data handling
+* Exception handling
+* Modular Python design
+
+## Project Structure
+
+```text
+Pakgov-search-cli/
+│
+├── docs/                  # Text documents searched by the tool
+├── search.py              # Main search functionality
+├── document_reader.py     # Document reading logic
+├── exceptions.py          # Custom exceptions
+├── history.csv            # Search history
+├── .gitignore
+├── LICENSE
+└── README.md
+```
+
+## How It Works
+
+1. Place searchable `.txt` documents inside the `docs/` directory.
+2. Run the CLI from the project directory.
+3. Enter a keyword to search.
+4. The program scans the available documents.
+5. Matching results are displayed with surrounding context.
+6. The search is recorded in `history.csv`.
+
+## Installation
+
+Clone the repository:
+
+```bash
+git clone https://github.com/salikhussain71-code/Pakgov-search-cli.git
+```
+
+Enter the project directory:
+
+```bash
+cd Pakgov-search-cli
+```
+
+## Running the Project
+
+Run the main program:
+
+```bash
+python search.py
+```
+
+Make sure the `docs/` directory contains the `.txt` documents you want to search.
+
+## Why This Project
+
+Finding specific information across large collections of government documents can be time-consuming when performed manually.
+
+This project provides a lightweight command-line approach for searching local document collections and displaying relevant context around matches.
+
+## License
+
+This project is licensed under the MIT License.
