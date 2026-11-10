@@ -13,11 +13,13 @@ HISTORY_FILE = "history.csv"
 def save_to_history(keyword, results_count):
     """Save each search to history.csv with timestamp"""
     now = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
-    file_exists = os.path.isfile(HISTORY_FILE)
-    
+    # An empty file (e.g. checked into version control as a placeholder)
+    # needs the header row just like a missing file does.
+    needs_header = not os.path.isfile(HISTORY_FILE) or os.path.getsize(HISTORY_FILE) == 0
+
     with open(HISTORY_FILE, "a", newline="", encoding="utf-8") as f:
         writer = csv.writer(f)
-        if not file_exists:
+        if needs_header:
             writer.writerow(["timestamp", "keyword", "results_found"])
         writer.writerow([now, keyword, results_count])
 
